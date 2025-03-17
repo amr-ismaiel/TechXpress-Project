@@ -1,0 +1,225 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/yeti.bootstrap.css" />
+    <link rel="stylesheet" href="~/css/reset.css" asp-append-version="true" />
+
+    <link rel="stylesheet" href="~/css/index_1.css" asp-append-version="true" />
+    <link rel="stylesheet" href="product-card.css">
+    <link rel="stylesheet"href="swiper-bundle.min.css"/>
+
+    <title>Document</title>
+</head>
+<body>
+    <div class="cart ">
+        <div class="top-cart">
+            <h3>Cart Items: <span  class="count-items-cart">0</span></h3>
+            <button class="cart-close-button">
+                <span class="X"></span>
+                <span class="Y"></span>
+                <div class="close">Close</div>
+              </button>
+        </div>
+        <div class="items-incart" id="cart-items">
+            <div class="item-cart">
+                <img src="13.png" alt="">
+                <div class="content">
+                    <h4>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</h4>
+                    <div class="price-control">
+                        <div class="number-control">
+                            <div class="number-left"></div>
+                            <input type="number" name="number" class="number-quantity">
+                            <div class="number-right"></div>
+                        </div>
+                        <p class="item-price">$30</p>
+                    </div>
+                </div>
+                <button class="deleteButton">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 50 59"
+                      class="bin"
+                    >
+                      <path
+                        fill="#B5BAC1"
+                        d="M0 7.5C0 5.01472 2.01472 3 4.5 3H45.5C47.9853 3 50 5.01472 50 7.5V7.5C50 8.32843 49.3284 9 48.5 9H1.5C0.671571 9 0 8.32843 0 7.5V7.5Z"
+                      ></path>
+                      <path
+                        fill="#B5BAC1"
+                        d="M17 3C17 1.34315 18.3431 0 20 0H29.3125C30.9694 0 32.3125 1.34315 32.3125 3V3H17V3Z"
+                      ></path>
+                      <path
+                        fill="#B5BAC1"
+                        d="M2.18565 18.0974C2.08466 15.821 3.903 13.9202 6.18172 13.9202H43.8189C46.0976 13.9202 47.916 15.821 47.815 18.0975L46.1699 55.1775C46.0751 57.3155 44.314 59.0002 42.1739 59.0002H7.8268C5.68661 59.0002 3.92559 57.3155 3.83073 55.1775L2.18565 18.0974ZM18.0003 49.5402C16.6196 49.5402 15.5003 48.4209 15.5003 47.0402V24.9602C15.5003 23.5795 16.6196 22.4602 18.0003 22.4602C19.381 22.4602 20.5003 23.5795 20.5003 24.9602V47.0402C20.5003 48.4209 19.381 49.5402 18.0003 49.5402ZM29.5003 47.0402C29.5003 48.4209 30.6196 49.5402 32.0003 49.5402C33.381 49.5402 34.5003 48.4209 34.5003 47.0402V24.9602C34.5003 23.5795 33.381 22.4602 32.0003 22.4602C30.6196 22.4602 29.5003 23.5795 29.5003 24.9602V47.0402Z"
+                        clip-rule="evenodd"
+                        fill-rule="evenodd"
+                      ></path>
+                      <path fill="#B5BAC1" d="M2 13H48L47.6742 21.28H2.32031L2 13Z"></path>
+                    </svg>
+                  
+                    <span class="tooltip">Delete</span>
+                  </button>
+                  
+            </div>
+        </div>
+
+        <div class="bottom-cart">
+            <div class="total">
+                <p>Subtotal</p>
+                <p class="price-cart-total">$0</p>
+            </div>
+            <div class="button-cart">
+                <a href="#" class=" btn btn-cart ">Checkout</a>
+                <span class=" btn btn-cart trans-bg "> Continue Shopping</span>
+            </div>
+        </div>
+    </div>
+    <header >
+        <div class="top-header">
+            <div class="container">
+                <a href="" class="logo">
+                    <img src="tx.svg" alt="">
+                </a>
+               
+                <div class="input-wrapper">
+                    
+                    <div class="select-box-expand">
+                        <select name="category" id="category" class="category">
+                            <option value="all">All Categories</option>
+                            <option value="electronics">Electronics</option>
+                            <option value="appliances">Appliances</option>
+                            <option value="smartwatchs">Smart Watches</option>
+    
+    
+                        </select>
+                    </div>
+                    
+                    
+                    <input placeholder="search.." class="input" name="text" type="text"></input>
+                    <button class="icon-search"> 
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" height="25px" width="25px">
+                          <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="#333" d="M11.5 21C16.7467 21 21 16.7467 21 11.5C21 6.25329 16.7467 2 11.5 2C6.25329 2 2 6.25329 2 11.5C2 16.7467 6.25329 21 11.5 21Z"></path>
+                          <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="#333" d="M22 22L20 20"></path>
+                        </svg>
+                      </button>
+               
+                  </div>
+         <!--    <form action="" class="search-box">
+                <div class="select-box">
+                    <select name="category" id="category" class="category">
+                        <option value="all">All Categories</option>
+                        <option value="electronics">Electronics</option>
+                        <option value="appliances">Appliances</option>
+                        <option value="smartwatchs">Smart Watches</option>
+
+
+                    </select>
+                </div>
+            <input placeholder="search.." class="input" name="text" type="text">
+            <button type="submit" class="search-btn">
+                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
+                </svg>
+                  
+            </button>
+            </form> -->
+            <div class="header-icons">
+                <div class="icon cart-icon">
+                    <a href="#">
+                        <svg class="w-[48px] h-[48px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"/>
+                        </svg>
+                        <span class="count count-favorite">
+                          
+                          0
+                    </span>
+                    </a>
+                </div>
+                <div class="icon fav-icon">
+                    <a href="#">
+                        <svg class="w-[48px] h-[48px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12.01 6.001C6.5 1 1 8 5.782 13.001L12.011 20l6.23-7C23 8 17.5 1 12.01 6.002Z"/>
+                        </svg>
+                        <span class="count count-items">
+                          0
+                    </span>
+                    </a>
+                </div>
+                
+            </div>  
+                
+            </div>
+        </div>
+        <div class="bottom-header">
+            <div class="container">
+                <nav class="nav">
+                    <span class="nav-icon">
+                        <svg class="w-[48px] h-[48px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path    d="M5 7h14M5 12h14M5 17h14"/>
+                        </svg>
+                    </span>
+                   <!--  <div class="category-nav">
+                        <div class="category-btn">
+                            <svg class="w-[48px] h-[48px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h14"/>
+                            </svg>
+                              <p>All Categories</p>
+                            <svg class="w-[48px] h-[48px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 9-7 7-7-7"/>
+                            </svg>
+                              
+                        </div>
+                    </div>  --> 
+                    <ul class="nav-links">
+                        <span>
+                          <button class="cart-close-button menu-close-button">
+                            <span class="X"></span>
+                            <span class="Y"></span>
+                            <div class="close">Close</div>
+                          </button>
+                        </span>
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Accesories</a></li>
+                        <li><a href="#">blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="login-signup btns">
+                    <a class="btn" href="#" class="login">Login
+                        <svg class="w-[48px] h-[48px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M9 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm-2 9a4 4 0 0 0-4 4v1a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1a4 4 0 0 0-4-4H7Zm8-1a1 1 0 0 1 1-1h1v-1a1 1 0 1 1 2 0v1h1a1 1 0 1 1 0 2h-1v1a1 1 0 1 1-2 0v-1h-1a1 1 0 0 1-1-1Z" clip-rule="evenodd"/>
+                          </svg>
+                          
+                    </a>
+                    <a class="btn" href="#" class="signup">Sign Up
+                        <svg class="w-[48px] h-[48px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12H4m12 0-4 4m4-4-4-4m3-4h2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3h-2"/>
+                          </svg>
+                          
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2025 - TechXpress - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

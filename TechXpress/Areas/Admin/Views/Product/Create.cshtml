@@ -1,0 +1,155 @@
+@model TechXpress.ViewModels.ProductVM
+<div class="w-100 card border-0 p-4">
+    <div class="card-header bg-dark bg-gradient bg-gradient ml-0 py-3">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="text-white py-2">Create Product</h2>
+            </div>
+        </div>
+    </div>
+    <div class="card-body border p-4">
+        <form method="post" class="row bg-dark" enctype="multipart/form-data">
+                <div class="p-3  ">
+                    @* <div asp-validation-summary="All"></div>  *@
+                    <div class="row">
+                        <div class="form-floating py-1 mt-2 col-md-6">
+                            <select asp-for="@Model.product.id" asp-items="@Model.category_list"
+                             class="form-select border custom-select" placeholder="Category">
+                            <options>
+                                <option disabled selected>--Select Category--</option>
+                            </options>
+                            </select>
+                            <label asp-for="product.id" class="ms-2">Category</label>
+                            <span asp-validation-for="product.id" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating py-1 mt-2 col-md-6">
+                            <select asp-for="@Model.product.id" asp-items="@Model.brand_list"
+                             class="form-select border custom-select" placeholder="Brand">
+                            <options>
+                                <option disabled selected>--Select Brand--</option>
+                            </options>
+                            </select>
+                            <label asp-for="product.id" class="ms-2">Brand</label>
+                            <span asp-validation-for="product.id" class="text-danger"></span>
+                        </div>
+                    </div>
+                   
+                        
+                        <div class="form-floating   py-1 mt-2 col-12">
+                            <input asp-for="product.name" class="form-control border " placeholder="Name" />
+                            <label asp-for="product.name" class="ms-2">Name</label>
+                            <span asp-validation-for="product.name" class="text-danger"></span>
+                        </div>
+                    <div class="form-floating py-1 mt-2 col-12">
+                        <textarea asp-for="product.description" class="form-control border " placeholder="Description" rows="3" style="height: 100px;"></textarea>
+                        <label asp-for="product.description" class="ms-2">Discription</label>
+                        <span asp-validation-for="product.description" class="text-danger"></span>
+                    </div>
+                    <div class="row">
+                        <div class="form-floating py-1 mt-2 col-md-6">
+                            <input asp-for="product.stock_quantity" class="form-control border " placeholder="Stock" type="number" min="0"/>
+                            <label asp-for="product.stock_quantity" class="ms-2">Stock</label>
+                            <span asp-validation-for="product.stock_quantity" class="text-danger"></span>
+                        </div>
+                        <div class="input-group py-1 mt-2 col" style="flex-wrap: nowrap; ">
+                            <span class="input-group-text ">$</span>
+                            <div class="form-floating">
+                                <input type="text" class="form-control border col" placeholder="Price" style="min-width: 10rem;"   aria-label="Amount (to the nearest dollar)">
+                                <label asp-for="product.stock_quantity" class="ms-2">Price</label>
+                            </div>
+                            <span class="input-group-text ">.00</span>
+                          </div>
+                    </div>
+                    
+                    
+                    
+                    <div class="form-floating py-1 mt-2 col-12">
+                        <input type="text" class="form-control" id="floatingSKU" placeholder="Rating" autocomplete="off">
+                        <label for="floatingPassword">Rating</label>
+                    </div>
+                    <div class="form-floating py-1 mt-2 col-12">
+                        <input type="text" class="form-control" id="floatingSKU" placeholder="SKU" autocomplete="off">
+                        <label for="floatingPassword">SKU</label>
+                    </div>
+                    
+                    <div>
+                        
+                        <input class="form-control-lg border mt-2 col-12" style="min-width: 1rem;" type="file" id="productImages" multiple>
+                      </div>
+                    
+                    @* <div class="form-floating py-1 mt-2 col-12">
+                        <input asp-for="ImageUrl" hidden class="form-control border shadow" />
+                        <input asp-for="Image" class="form-control border shadow" />
+                        <label asp-for="ImageUrl" class="ms-2 "></label>
+                        <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                    </div> *@
+    
+                    <div id="imagePreviewContainer" class="row mt-3">
+                        <!-- Previews and radio buttons for primary image will be inserted here -->
+                    </div>
+                    <div class="row pt-2">
+                        <div class="col-6 col-md-3">
+                            <button type="submit" class="btn btn-success w-100">
+                                <i class="bi bi-check-circle"></i> Create
+                            </button>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <a asp-controller="Villa" asp-action="Index" class="btn btn-secondary w-100">
+                                <i class="bi bi-x-circle"></i> Cancel
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        @section Scripts {
+            <script>
+                document.getElementById('productImages').addEventListener('change', function (e) {
+                    const container = document.getElementById('imagePreviewContainer');
+                    container.innerHTML = ''; // Clear previous previews
+                    const files = e.target.files;
+                    for (let i = 0; i < files.length; i++) {
+                        const file = files[i];
+                        const reader = new FileReader();
+                        reader.onload = function (event) {
+                            // Create a responsive column using Bootstrap classes
+                            const div = document.createElement('div');
+                            div.className = 'col-6 col-sm-4 col-md-3 col-lg-2 text-center mb-3';
+
+                            // Create an image element with responsive styling
+                            const img = document.createElement('img');
+                            img.src = event.target.result;
+                            img.className = 'img-fluid rounded';
+                            img.style.maxWidth = '150px';
+                            img.style.maxHeight = '150px';
+
+                            // Create a radio button for selecting the primary image
+                            const radio = document.createElement('input');
+                            radio.type = 'radio';
+                            radio.name = 'PrimaryImageIndex'; // This should match your ViewModel property
+                            radio.value = i;
+                            if (i === 0) {
+                                radio.checked = true; // Default primary
+                            }
+
+                            // Create a label for the radio button
+                            const label = document.createElement('label');
+                            label.innerText = 'Primary';
+                            label.style.display = 'block';
+                            label.style.marginTop = '5px';
+
+                            // Append image and controls to the container div
+                            div.appendChild(img);
+                            div.appendChild(radio);
+                            div.appendChild(label);
+
+                            // Append the container div to the preview area
+                            container.appendChild(div);
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                });
+            </script>
+        }
+
+    </div>
+</div>

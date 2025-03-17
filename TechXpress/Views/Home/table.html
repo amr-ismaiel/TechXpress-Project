@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../../wwwroot/css/reset.css">
+
+    <link rel="stylesheet" type="text/css" href="../../wwwroot/lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="table.css">
+	<link rel="stylesheet" type="text/css" href="../../wwwroot/css/Basic.css">
+    <link rel="stylesheet" type="text/css" href="../../wwwroot/css/util.css">
+
+</head>
+<body >
+    <div class="w-100  card border-0 p-4" style="background-color: rgb(246, 246, 246);">
+        <div class="w-100 card-header bg-dark bg-gradient bg-gradient ml-0 py-3">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2 class="text-white py-2">Product List</h2>
+                </div>
+            </div>
+        </div>
+         <div class="card-body border p-4">
+            <div class="row pb-3">
+                <div class="col-6 offset-6 text-end">
+                    <a asp-controller="Product" asp-action="Create" class="btn btn-secondary">
+                        <i class="bi bi-plus-circle"></i> Create New Product
+                    </a>
+                </div>
+            </div> 
+         
+    
+            <table class="w-100 table table-bordered table-default " id="custom-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>job title</th>
+                        <th>experience</th>
+                        <th>salary</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                   
+                        <tr>
+                            <td data-cell="Name">ahmed</td>
+                            <td data-cell="Job title">softeare developer</td>
+                            <td data-cell="Experience">stock_ quantity</td>
+                            <td data-cell="Salary">category. subcategory_ name</td>
+                        
+                             <td>
+                                <div class="w-75 btn-group" role="group">
+                                    <a asp-controller="Villa" asp-action="Update" asp-route-villaId="@obj.id"
+                                       class="btn btn-success ">
+                                        <i class="bi bi-pencil-square"></i> Edit
+                                    </a>
+                                    <a asp-controller="Villa" asp-action="Delete" asp-route-villaId="@obj.id"
+                                       class="btn btn-danger ">
+                                        <i class="bi bi-trash-fill"></i> Delete
+                                    </a>
+                                </div>
+                            </td> 
+                        </tr>
+
+                        <tr>
+                            <td data-cell="Name">ahmed</td>
+                            <td data-cell="Job title">softeare developer</td>
+                            <td data-cell="Experience">stock_quantity</td>
+                            <td data-cell="Salary">category.subcategory_name</td>
+                        
+                             <td>
+                                <div class="w-75 btn-group" role="group">
+                                    <div class="btn-container">
+                                        <button asp-controller="Villa" asp-action="Delete" asp-route-villaId="@obj.id"
+                                        class="edit-button">
+                                            <svg class="edit-svgIcon" viewBox="0 0 512 512">
+                                                <path
+                                                    d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z">
+                                                </path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="btn-container">
+                                    <button asp-controller="Villa" asp-action="Delete" asp-route-villaId="@obj.id"
+                                    class="delete-button">
+                                    <svg class="delete-svgIcon" viewBox="0 0 448 512">
+                                        <path
+                                            d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z">
+                                        </path>
+                                    </svg>
+                                </button>
+                            </div>
+                                </div>
+                            </td> 
+                        </tr>
+                    
+                </tbody>
+            </table>
+            <form method="post" class="row bg-dark" enctype="multipart/form-data">
+                <div class="p-3  ">
+                    @* <div asp-validation-summary="All"></div>  *@
+                    <div class="row">
+                        <div class="form-floating py-1 mt-2 col-md-6">
+                            <select asp-for="@Model.product.id" asp-items="@Model.category_list"
+                             class="form-select border custom-select" placeholder="Category">
+                            <options>
+                                <option disabled selected>--Select Category--</option>
+                            </options>
+                            </select>
+                            <label asp-for="product.id" class="ms-2">Category</label>
+                            <span asp-validation-for="product.id" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating py-1 mt-2 col-md-6">
+                            <select asp-for="@Model.product.id" asp-items="@Model.category_list"
+                             class="form-select border custom-select" placeholder="Category">
+                            <options>
+                                <option disabled selected>--Select Brand--</option>
+                            </options>
+                            </select>
+                            <label asp-for="product.id" class="ms-2">Brand</label>
+                            <span asp-validation-for="product.id" class="text-danger"></span>
+                        </div>
+                    </div>
+                   
+                        
+                        <div class="form-floating   py-1 mt-2 col-12">
+                            <input asp-for="product.name" class="form-control border " placeholder="Name" />
+                            <label asp-for="product.name" class="ms-2">Name</label>
+                            <span asp-validation-for="product.name" class="text-danger"></span>
+                        </div>
+                    <div class="form-floating py-1 mt-2 col-12">
+                        <textarea asp-for="product.description" class="form-control border " placeholder="Description" rows="3" style="height: 100px;"></textarea>
+                        <label asp-for="product.description" class="ms-2">Discription</label>
+                        <span asp-validation-for="product.description" class="text-danger"></span>
+                    </div>
+                    <div class="row">
+                        <div class="form-floating py-1 mt-2 col-md-6">
+                            <input asp-for="product.stock_quantity" class="form-control border " placeholder="Stock" type="number" min="0"/>
+                            <label asp-for="product.stock_quantity" class="ms-2">Stock</label>
+                            <span asp-validation-for="product.stock_quantity" class="text-danger"></span>
+                        </div>
+                        <div class="input-group py-1 mt-2 col" style="flex-wrap: nowrap; ">
+                            <span class="input-group-text ">$</span>
+                            <div class="form-floating">
+                                <input type="text" class="form-control border col" placeholder="Price" style="min-width: 10rem;"   aria-label="Amount (to the nearest dollar)">
+                                <label asp-for="product.stock_quantity" class="ms-2">Price</label>
+                            </div>
+                            <span class="input-group-text ">.00</span>
+                          </div>
+                    </div>
+                    
+                    
+                    
+                    <div class="form-floating py-1 mt-2 col-12">
+                        <input type="text" class="form-control" id="floatingSKU" placeholder="Rating" autocomplete="off">
+                        <label for="floatingPassword">Rating</label>
+                    </div>
+                    <div class="form-floating py-1 mt-2 col-12">
+                        <input type="text" class="form-control" id="floatingSKU" placeholder="SKU" autocomplete="off">
+                        <label for="floatingPassword">SKU</label>
+                    </div>
+                    
+                    <div>
+                        
+                        <input class="form-control-lg border mt-2 col-12" style="min-width: 1rem;" type="file" id="productImages" multiple>
+                      </div>
+                    
+                    @* <div class="form-floating py-1 mt-2 col-12">
+                        <input asp-for="ImageUrl" hidden class="form-control border shadow" />
+                        <input asp-for="Image" class="form-control border shadow" />
+                        <label asp-for="ImageUrl" class="ms-2 "></label>
+                        <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                    </div> *@
+    
+                    <div id="imagePreviewContainer" class="row mt-3">
+                        <!-- Previews and radio buttons for primary image will be inserted here -->
+                    </div>
+                    <div class="row pt-2">
+                        <div class="col-6 col-md-3">
+                            <button type="submit" class="btn btn-success w-100">
+                                <i class="bi bi-check-circle"></i> Create
+                            </button>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <a asp-controller="Villa" asp-action="Index" class="btn btn-secondary w-100">
+                                <i class="bi bi-x-circle"></i> Cancel
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+    
+        </div>
+
+       
+
+    </div>
+
+    <div class="sec-banner bg3 p-t-80 p-b-50">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
+                    <!-- Block1 -->
+                    <div class="block1 wrap-pic-w">
+                        @* <img src="images/banner-01.jpg" alt="IMG-BANNER"> *@
+    
+                        <a href="product.html"
+                            class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+                            <div class="block1-txt-child1 flex-col-l">
+                                <span class="block1-name ltext-102 trans-04 p-b-8">
+                                    Womens
+                                </span>
+    
+                                <span class="block1-info stext-102 trans-04">
+                                    Spring 2018
+                                </span>
+                            </div>
+    
+                            <div class="block1-txt-child2 p-b-4 trans-05">
+                                <div class="block1-link stext-101 cl0 trans-09">
+                                    Shop Now
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+    
+                <div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
+                    <!-- Block1 -->
+                    <div class="block1 wrap-pic-w">
+                        @* <img src="images/banner-02.jpg" alt="IMG-BANNER"> *@
+    
+                        <a href="product.html"
+                            class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+                            <div class="block1-txt-child1 flex-col-l">
+                                <span class="block1-name ltext-102 trans-04 p-b-8">
+                                    Men
+                                </span>
+    
+                                <span class="block1-info stext-102 trans-04">
+                                    Spring 2018
+                                </span>
+                            </div>
+    
+                            <div class="block1-txt-child2 p-b-4 trans-05">
+                                <div class="block1-link stext-101 cl0 trans-09">
+                                    Shop Now
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+    
+                <div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
+                    <!-- Block1 -->
+                    <div class="block1 wrap-pic-w">
+                        @* <img src="images/banner-03.jpg" alt="IMG-BANNER"> *@
+    
+                        <a href="product.html"
+                            class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+                            <div class="block1-txt-child1 flex-col-l">
+                                <span class="block1-name ltext-102 trans-04 p-b-8">
+                                    Accessories
+                                </span>
+    
+                                <span class="block1-info stext-102 trans-04">
+                                    New Trend
+                                </span>
+                            </div>
+    
+                            <div class="block1-txt-child2 p-b-4 trans-05">
+                                <div class="block1-link stext-101 cl0 trans-09">
+                                    Shop Now
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+   
+    @section Scripts {
+        <script>
+            // Handle file input changes
+            document.getElementById('productImages').addEventListener('change', function (e) {
+                const container = document.getElementById('imagePreviewContainer');
+                container.innerHTML = ''; // Clear any previous previews
+                const files = e.target.files;
+                for (let i = 0; i < files.length; i++) {
+                    const file = files[i];
+                    const reader = new FileReader();
+                    reader.onload = function (event) {
+                        // Create a responsive column for each image preview
+                        const div = document.createElement('div');
+                        div.className = 'col-6 col-sm-4 col-md-3 col-lg-2 text-center mb-3 image-preview-item';
+                        div.dataset.index = i; // store index
+    
+                        // Create an image element with responsive styling
+                        const img = document.createElement('img');
+                        img.src = event.target.result;
+                        img.className = 'img-fluid rounded';
+                        img.style.maxWidth = '150px';
+                        img.style.maxHeight = '150px';
+    
+                        // Create a radio button for selecting the primary image
+                        const radio = document.createElement('input');
+                        radio.type = 'radio';
+                        radio.name = 'PrimaryImageIndex'; // Must match your ViewModel property
+                        radio.value = i;
+                        if (i === 0) {
+                            radio.checked = true; // First image is primary by default
+                        }
+                        radio.addEventListener('change', handlePrimarySelection);
+    
+                        // Create a label for the radio button
+                        const label = document.createElement('label');
+                        label.innerText = 'Primary';
+                        label.style.display = 'block';
+                        label.style.marginTop = '5px';
+    
+                        // Append the image, radio, and label to the container div
+                        div.appendChild(img);
+                        div.appendChild(radio);
+                        div.appendChild(label);
+    
+                        // Append the container div to the preview area
+                        container.appendChild(div);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+    
+            // Function to handle primary image selection
+            function handlePrimarySelection(e) {
+                // Reset all items to default styling
+                const items = document.querySelectorAll('.image-preview-item');
+                items.forEach(item => {
+                    item.classList.remove('primary-image');
+                    // Reset to default grid classes
+                    item.classList.remove('col-12', 'col-sm-12', 'col-md-6', 'col-lg-4');
+                    item.classList.add('col-6', 'col-sm-4', 'col-md-3', 'col-lg-2');
+                });
+    
+                // Get the container of the selected radio button
+                const selectedContainer = e.target.closest('.image-preview-item');
+                if (selectedContainer) {
+                    // Add a special class and adjust its grid classes for larger display
+                    selectedContainer.classList.add('primary-image');
+                    selectedContainer.classList.remove('col-6', 'col-sm-4', 'col-md-3', 'col-lg-2');
+                    // For the primary image, take up more space:
+                    selectedContainer.classList.add('col-12', 'col-sm-12', 'col-md-6', 'col-lg-4');
+    
+                    // Move the selected container to the top of the preview container
+                    const container = document.getElementById('imagePreviewContainer');
+                    container.prepend(selectedContainer);
+                }
+            }
+        </script>
+    }
+    
+</body>
+</html>

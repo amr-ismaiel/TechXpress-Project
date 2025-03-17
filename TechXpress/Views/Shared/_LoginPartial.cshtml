@@ -1,0 +1,36 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using TechXpress_DataAccess.Data
+@using TechXpress_Models.Entities
+
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+<div class="paste-button">
+
+    @if (SignInManager.IsSignedIn(User))
+    {
+           <button class="account-button  p-lr-25 trans-04">@UserManager.GetUserName(User)! &nbsp; ▼</button>
+
+            <div class="dropdown-content">
+                <a id="top" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Profile
+                </a>
+                
+                <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout"
+                asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <button id="logout" type="submit" >Logout</button>
+            </form>
+            </div>
+    }
+    else
+    {
+            <button class="account-button  p-lr-25 trans-04">Account &nbsp; ▼</button>
+
+            <div class="dropdown-content">
+                <a id="top" asp-area="Identity" asp-page="/Account/Login">Login</a>
+                
+                <a id="bottom" asp-area="Identity" asp-page="/Account/Register">Register</a>
+            </div>
+    }
+
+        </div>
